@@ -1,0 +1,529 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>BUKUNMI'S PORTFOLIO(A/B_Testing)</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<!-- Note: The "styleN" class below should match that of the banner element. -->
+					<header id="header" class="alt style2">
+						<a href="index.html" class="logo"><strong>Portfolio</strong> <span>by Bukunmi</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">HOME</a></li>
+							<li><a href="landing.html">EXPLORATORY DATA ANALYSIS</a></li>
+							<li><a href="visualx.html">VISUALIZATION WITH SEABORNE</a></li>
+							<li><a href="AB_Testing.html">A/B TESTING</a></li>
+							<li><a href="SQL.html">SQL,TABLEAU & POWER BI</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<!--  <li><a href="#" class="button fit">Log In</a></li>-->
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>A/B Testing</h1>
+							</header>
+							<div class="content">
+								<p>Statsmodel, python, Numpy, matplotlib, Random and Pandas</p>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>INTRODUCTION</h2>
+									</header>
+									<p>A/B tests are very commonly performed by data analysts and data scientists. For this project, I will be 
+										working to understand the results of an A/B test run by an e-commerce website. The goal is to work through 
+										and analyse the provided data to help the company understand if they should:
+										<ul class="links">
+											<li>Implement the new webpage,</li>
+											<li>Keep the old webpage, or</li>
+											<li>Perhaps run the experiment longer to make their decision.</li>
+										</ul>
+									</p>
+									<header class="major">
+										<h3>Dataset Description</h3>
+									</header>
+									<p align="justify">The company major dataset contains five columns;
+										<ol class="links">
+											<li>"user_id" - Unique ID</li>
+											<li>"timestamp" - Time stamp when the user visited the webpage</li>
+											<li>"group" - In the current A/B experiment, the users are categorized into two broad groups. However, some inaccurate rows are<br>
+												 present in the initial data, such as a "control" group user is matched with a "new_page"
+												<ul class="links">
+													<li> "control" - this user group are expected to be served with "old_page"</li>					
+													<li>"treatment" - this user group are expected to be matched with th "new_page"</li>
+												</ul>
+											</li>
+											<li>"landing_page" - It denotes whether the user visited the old or new webpage</li>
+											<li>"converted" - It denotes whether the user decided to pay for the company's product. Here, 1 means yes, the user bought the product.	</li>
+										</ul>
+									</p>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two" class="spotlights">
+								<section>
+									<a href="images\ABT_preliminary_wrangling.png" class="image">
+										<img src="images\ABT_preliminary_wrangling.png" alt="" data-position="center center" />	
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Preliminary Wrangling</h3>
+											</header>
+											<p align="justify">To begin this project I first read in some dependencies as seen in cell 1, this followed
+												by some data wrangling as seen in cell 2 through 16.
+												<ul>
+													<li>
+														Cell 2 - company data is read into a pandas dataframe using the ".read_csv" method of Pandas
+													</li>
+													<li>
+														Cell 3 - the ".shape" method of pandas helps to inform that there are 294478 rows and 5 columns present in the company dataset
+													</li>
+													<li>
+														Cell 4 - using the ".head()" method to inspect the first five rows in the provided dataset
+													</li>
+													<li>
+														Cell 5 - number of unique website users in the dataset which are 290584. This was done using the ".nunique()" method of pandas
+													</li>
+													<li>
+														Cell 6 - checking the unique values in the "landing_page" variable which gave a result of 2
+													</li>
+													<li>
+														Cell 7 - checked for the proportion of users that converted
+													</li>
+													<li>
+														Cell 8 & 9 - investigated the number of wrongly matched groups and landing page contained in the dataset using the ".query()"
+														and ".groupby()" methods of Pandas
+													</li>
+													<li>
+														Cell 10 - Applying the ".info()" method to inspect the dataframe properties such as data types, number of columns, memory usage and
+														number of non-null values in each column
+													</li>
+													<li>
+														Cell 11 & 12 - commands in these cells were used to remove the wrong matches present in my dataframe some of the pandas methods used
+														were ".drop()", ".query()" and ".index". A new dataframe was created and stored as "df2" 
+													</li>
+													<li>
+														Cell 13 - the ".nunique()" method was deployed again to find out teh remaining number of unique user present in the new dataframe(290584)
+													</li>
+													<li>
+														Cell 14 - there happens to be a duplicate user_id present in my dataframe which was investigated using the ".value_counts()" method
+													</li>
+													<li>
+														Cell 15 & 16 - Using the ".query()" and ".drop()" methods, I removed one of the instance of the duplicate user_id present in the dataframe
+													</li>
+												</ul>
+											</p>
+											<!--<ul class="actions">
+												<li><a href="generic.html" class="button">Learn more</a></li>
+											</ul>-->
+										</div>
+									</div>
+								</section >
+								<section>
+									<a href="images\ABT_Probability.png" class="image">
+										<img src="images\ABT_Probability.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Part I: Probablity Approach</h3>
+											</header>											
+											<p align="justify">My approach was to make recommendations based on different methods; increasing with the level of 
+												complexity in methods, this started with the probability approach.
+												<ol>
+													<li align="justify"><h4>What is the probability of an individual converting regardless of the poage they receive?</h4>
+														To calculate the general conversion rate of users regardless of which class or subcategory they belong to, I simply
+														calculated the mean for the "converted" cloumn in my dataframe giving a probablity of 12%. 1 represents converted while 0 represents not converted as seen in cell 17.									
+													</li>
+													<li align = "justify"><h4>Given that an individual was in the control group, what is the probability they converted?</h4>
+														I deployed the ".query()" method to extract the control group of users that converted within the dataset provided, this enabled easy calculation of the probability using the
+														".mean()" method. The probability of an individual in the control group converting is calculated as 12%. 
+													</li>
+													<li align = "justify"><h4>Given that an individual was in the treatment group, what is the probability they converted?</h4>
+														 Again, I deployed the ".query()" method to extract the treatment group of users that converted within the dataset provided, this enabled easy calculation of the probability using the
+														".mean()" method. The probability of an individual in the control group converting is calculated as 11.89%. 
+													</li>
+													<li align = "justify"><h4>What is the probability that an individual received the new page?</h4>
+														To derive the probablity of an individual receiving a new page, the "landing_page" variable in my dataset was subjected to a query using the ".query()" and ".count()" methods of Pandas. 
+														Calculations reveal that there is a 50% probablity that an idividual received the new page of the company website.
+												   </li> 
+												</ol>
+												<p>After the probability approach analysing the the data provided, there is no evidence that suggests that the new treatment group users led to more conversions.</p>
+											</p>
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="images\ABT_AB_Testing1.png" class="image">
+										<img src="images\ABT_AB_Testing1.png" alt="" data-position="25% 25%" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Part II: A/B Test Approach</h3>
+											</header>
+											<p align="justify">Since a timestamp is associated with each event, I could run a hypothesis test continuously as long as I observe the events.
+												However, then the hard questions would be:
+												<ul>
+													<li>Do you stop as soon as one page is considered significantly better than another or does it need to happen consistently for a certain amount of time?</li>
+													<li>How long do I run to render a decision that neither page is better than another?</li>
+												</ul>
+											</p>
+											<p align="justify">These questions are the difficult parts associated with A/B tests in general. For this project, I considered making my decision based on just all the data provided.
+											</p>
+											<ul>
+												<li><h3>Hypothesis Statement</h3></li>
+											</ul>	
+											<p align="justify">Recall that we just calculated that the "converted" probability (or rate) for the old page is slightly higher than that of the new page.
+												Based on this, the prior assumption to form a basis for the hypothesis statement is  that the old page is better unless the new page proves to be definitely better at a Type I error rate of 5%.
+												The Null hypothesis for this project states that the old page(control group) is more effective than the new page while the alternative(competing) hypothesis states that the new page(treatment group) 
+												leads to a higher convertion rate amongst the company website visitors. Hypothesis statement in terms of conversion rate from the previous probablity approach can be seen in image extract from my ipynb file.
+												Where "Pold" and "Pnew" are the conversion rate of old and new pages respectively.
+											</p>
+											<ul>
+												<li><h3>Null Hypothesis Testing</h3></li>
+											</ul>
+											<p align="justify">Under the Null hypothesis testing, we assume that "Pnew" and "Pold" are equal. Furthermore, assume that  "pnew"  and  "pold"  both are equal to the converted success rate in the "df2" data regardless of the page. 
+												So, our assumption is: Pnew = Pold = Ppopulation
+											</p>
+											<p align="justify"> In this section I will:
+												<ol>
+													<li>Simulate (bootstrap) sample data set for both groups, and compute the "converted" probability  p  for those samples, as seen in cell output 22 to 25</li>
+													<li>Use a sample size for each group equal to the ones in the "df2" data, as seen in cell output 26 and 27</li>
+													<li>Compute the difference in the "converted" probability for the two samples above, as seen in cell output 28</li>
+													<li>Perform the sampling distribution for the "difference in the converted probability" between the two simulated-samples over 10,000 iterations; and calculate an estimate, as seen in cell output 29 to 31</li>
+												<p align="justify">Calculated in cell 31 is the proportion of the difference between the simulated convertion rate for new pages and old page which are greater that the observed difference from the original dataset given. This is otherwise known as P-Value.
+													If the Null hypothesis is true, this is the probablity of obtainingthe observed statistic or an extreme value in favour of the alternative hypothesis. What this mean relative to the current project is that The P value calculated suggests 
+													that the statistic(obs_diff) is likely from the  H0 . In order words, the threshold for a type one error is 5% and since our P value is greater than the error threshold,  H0(null hypothesis)  remains valid.
+												</p>
+												</ol>
+												<ul class="actions">
+													<li><a href="https://github.com/Khunmi/Project--Analyze-A-B-Test-Results/blob/main/Analyze_ab_test_results_notebook.ipynb" class="button">Click to view a similar approach using Statsmodel.......</a></li>
+												</ul>
+											</p>																											
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="images\ABT_LRMpng.png" class="image">
+										<img src="images\ABT_LRMpng.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Part III: A Regression Approach</h3>
+											</header>
+											<p align="justify">In this final part, you will see that the result achieved in the A/B test in Part II above can also be achieved by performing regression.
+												Since each row in the df2 data is either a conversion or no conversion, it is intuitive for us to use a Logistic Regression mdel(LRM) due to to the binary output nature of this project.
+											</p>
+											<p align="justify">The goal is to use statsmodels library to fit the regression model you specified previously to see if there is a significant difference in conversion based on the page-type a customer receives. 
+												However, we first need to create the following two columns in the df2 dataframe:
+												<ol>
+													<li>"intercept" - It should be 1 in the entire column. Seen in cell 34.</li>
+													<li>"ab_page" - It's a dummy variable column, having a value 1 when an individual receives the treatment, otherwise 0. Seen in cell 34.</li>
+												</ol>
+												<p align="justify"> Next step was to use statsmodels to instantiate the regression model on the two columns you created previosuly, then fit the model to predict whether or not an individual converts(cell 35).
+													The ".summary2()" method of Statsmodel was used as necessary to answer the following questions:
+													<ul>
+														<li>What is the p-value associated with ab_page? Why does it differ from the value you found in Part II?</li>
+													</ul>
+													<p align="justify">The P value associated with ab_page is 0.1899 which agrees with not to reject the  H0.
+														The  H0  of our logistic regression model(LRM) states that none of the explanatory variable(s)
+														 have a statistically significant relationship with the response variable("conversion" rate), y. 
+														 The  H1  of our LRM states that there is a statistically significant relationship between conversion rates and the ab_page column. In order words,  H0:B1   =   0  and  H1:B1   !=   0 .
+														In comparison to the  H0  and  H1  in Part II, Part II investigated same outcome as this current section,
+														 where insight was derived from our two competing hypothesis with the basis of the difference in the average conversion rate for both idependent variables(groups). In both cases, we fail to reject the  H0 .
+													</p>
+													<ul class="actions">
+														<li><a href="https://github.com/Khunmi/Project--Analyze-A-B-Test-Results/blob/main/Analyze_ab_test_results_notebook.ipynb" class="button">Click to view additonal predictor variables to my LRM.......</a></li>
+													</ul>
+												</p>
+											</p>
+										</div>
+									</div>
+								</section>
+								<!--<section>
+									<a href="images\FGB_univariate_plot3.png" class="image">
+										<img src="images\FGB_univariate_plot3.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>UNIVARIATE EXPLORATION</h3>
+											</header>
+											<ul>
+												<li><h3>Busiest Start & End Bike Stations</h3></li>
+											</ul>
+											<p align="justify">A seaborne countplot visual was used to determine the top five start and end stations with regards to how many bike trips 
+												started and ended in these stations repectively. Based on cell output 22, The top two busiest end stations are 'San Francisco Caltrain Station 2' 
+												and 'Market St at 10th St' with both of them switching postions for the busiest start stations plot. Considering the whole dataset, San Francisco Caltrain Station 2 is busiest bike station.
+											</p>
+										</div>
+									</div>
+								</section>
+								<section id="two" class="spotlights">
+									<a href="images\FGB_bivariate_plot1.png" class="image">
+										<img src="images\FGB_bivariate_plot1.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h3>BIVARIATE EXPLORATION</h3>
+											</header>
+											<ul>
+												<li><h3>Duration VS User Type & Gender Type</h3></li>
+											</ul>
+											<p align="justify">My bivariate explorations starts with investigating the time spent on bike rides with respect to different gender catgeories as well as User Type categories.
+												Using seaborne's Violin plot, this reveals that a majority of the subscriber category members travel duration fall within the range of 1 to 10 minutes with over 50% falling below 10 minutes. The customer category have slightly over 25% of them with trip durations lower than 10 minutes while the rest fall above the 10 minutes cap. A more spreadout trip duration distribution is obeserved in the customer category type.
+												The 'male', 'female' and 'other' gender types show similiar relationships with the trip duration variable regardless of their respective sample size.
+											</p>											
+										</div>
+									</div>
+								</section>
+								<section id="two" class="spotlights">
+									<a href="images\FGB_bivariate_plot2.png" class="image">
+										<img src="images\FGB_bivariate_plot2.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h3>BIVARIATE EXPLORATION</h3>
+											</header>
+											<ul>
+												<li><h3>Categorical Vs Numeric Variables</h3></li>
+											</ul>
+											<p align="justify">I decided to investigate for existing patterns between categorical and numerical data types present in my dataset. A matrix of box plots was used for this visualisation. I started with
+												storing all catgeorical and numeric features into two major variables ("numeric_var" and "categoric_vars") and then parsing them into Seaborne's ".boxplot" method.	
+											</p>
+											<p align="justify"> Visual ouput from cell 27 informs that the average age of all gender and customer category is less that 40 yrs albeit several outliers present in the dataset.
+												From the gender point of view, average trip duration is less than 10 minutes albeit several outlier present in the distribution. From the user_type point of view, average 
+												trip duration for Customer category is over 10 minutes while that of the Subscriber category are less than 10 minutes.
+											</p>							
+										</div>
+									</div>
+								</section>
+								<section id="two" class="spotlights">
+									<a href="images\FGB_multivariate_plot1.png" class="image">
+										<img src="images\FGB_multivariate_plot1.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h3>MULTIVARIATE EXPLORATION</h3>
+											</header>
+											<ul>
+												<li><h3>Gender Activity Across Top 5 Busiest Start Stations</h3></li>
+											</ul>
+											<p align="justify"> For multivariate visualisation, I decided to work with three major variables in my dataset "member_gender","start_station_name" and "duration_mins".
+												Using the "member_gender" as hue for my Seaborne barplot, notable insights show that more male gender type in the dataset doesn't directly interprets to a dominance
+												 in all variables, this came as a surprise. Here in the top 5 busiest start stations, it can be seen that the Other gender category keeps the 'San Francisco Caltrain Station 2' and
+												  'Powell St BART Station (Market St at 4th St) stations the busiest in terms of trip durations at start stations.
+											</p>											
+										</div>
+									</div>
+								</section>
+								<!-- <section id="two" class="spotlights">
+									<a href="images\q2.png" class="image">
+										<img src="images\q2.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h1>EXPLORATORY DATA ANALYSIS (EDA)</h1>
+											</header>
+											<ul>
+												<li><h4>Do SMS prompts play an important role in appoinment showup rates?</h4></li>
+												<p>Investigating the influence of SMS prompts require drilling further into the first queries created for our analysis('showup' and 'nshowup'). Cell 24 contains statements generating the number of people that receives SMS and showedup for their appointments and those that didn't show despite receiving SMS prompts.</p>
+												<p>As seen in the plots from cell output 29, clearly, SMS prompts doesn't seem to influence attendance in any way;
+													<ol>
+														<li>A large percentage(83.3%) of people that didn't receive SMS prompts honored their appoinments while 16.7% did not.</li>												
+														<li>72.4% of SMS receivers honored their appoinment but this is obviously lesser than the attendees that did not receive any SMS prompts whatsoever.</li>
+													</ol>
+												</p>
+											</ul>
+										</div>
+									</div>
+								</section> -->
+								<!-- <section id="two" class="spotlights">
+									<a href="images\q3.png" class="image">
+										<img src="images\q3.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h1>EXPLORATORY DATA ANALYSIS (EDA)</h1>
+											</header>
+											<ul>
+												<li><h4>What percentage of males and females are enrolled in welfare programs?</h4></li>
+												<p>Exploring the distribution of scholarship enrolments by gender involves categorising our dataframe (cell 30) into the existing gender distribution and summing up the scholarship values because the data type in the 'scholarship' column is 'int' and it consists of two distinct values(0 and 1). Since I intend to investigate the percentage distribution, the total count for both male and female genders in our dataset needs to be calculated as given in cell output 31.</p>
+												<p>Since I intend to investigate the percentage distribution, the total count for both male and female genders in our dataset needs to be calculated as given in cell 31 . Investigating using percentage was chosen because the number of females in the distribution far outnumbers the males so plotting aggregates like count may not communicate the exact picture of the welfare enrollment distribution amongst genders(cell 32).</p>
+												<p>Highlights from the chart include;
+													<ol>
+														<li>Females have a higher percentage of enrollment in wellfare programmes than males. More than twice the percentage of enrolled men to be precise.</li>												
+														<li>Only 5.2% of the male distribution are enrolled in welfare programmes.</li>
+													</ol>
+												</p>
+											</ul>
+										</div>
+									</div>
+								</section> -->
+							</section> 
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>RECOMMENDATION</h2>
+									</header>
+									<p align="justify">
+										All evidence suggests that keeping the old webpage is the most profitable decision to make. The new webpage simply doesn't outperfrom the exisiting webpage.
+									</p>
+									<!-- <ul class="actions">
+										<li><a href="Part_II_slide_deck.slides.html" class="button">View SlideDeck</a></li>
+									</ul> -->
+								</div>
+							</section>
+							<!-- <section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>LIMITATIONS</h2>
+									</header>
+									<p>Data not capturing other gender identities. Male and females are not the only genders existing now. It would've helped to explore some peculiarities and differences associated with other gender identities.</p>
+								</div>
+							</section>	 -->
+
+						<!-- Three -->
+							<section id="two" class="spotlights">
+								<!--<a href="images\replacement_data.PNG" class="image">
+									<img src="images\replacement_data.PNG" alt="" data-position ="center center" />										
+								</a>-->
+								<!--<div class="content">-->
+								<!--<div class="inner">-->
+								<!--		<header >-->
+								<!--			<h1><u><center>Conclusion</center></u></h1>-->
+								<!--		</header>-->
+								<!--	<p>What age ranges are more likely to honor appointments as well as the ages that most likely wouldn't?</p>-->
+								<!--	</div>-->
+								<!--</div>-->
+							<!--</section>-->
+
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="6"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Clear" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="#">bukunmiadebanjo@gmail.com</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-phone"></span>
+										<h3>Phone</h3>
+										<span>+1(403) 668-1475</span>
+									</div>
+								</section>
+								<!--<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-home"></span>
+										<h3>Address</h3>
+										<span>1234 Somewhere Road #5432<br />
+										Nashville, TN 00000<br />
+										United States of America</span>
+									</div>
+								</section>-->
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<!--<li><a href="www.twitter.com" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>-->
+								<!--<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>-->
+								<!--<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>-->
+								<li><a href="https://github.com/Khunmi" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/kunmiadebanjo" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

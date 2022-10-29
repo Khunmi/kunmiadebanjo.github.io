@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>BUKUNMI'S PORTFOLIO(EDA)</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<!-- Note: The "styleN" class below should match that of the banner element. -->
+					<header id="header" class="alt style2">
+						<a href="index.html" class="logo"><strong>Portfolio</strong> <span>by Bukunmi</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="landing.html">EXPLORATORY DATA ANALYSIS</a></li>
+							<li><a href="visualx.html">VISUALIZATION WITH SEABORNE</a></li>
+							<li><a href="AB_Testing.html">A/B TESTING</a></li>
+							<li><a href="SQL.html">SQL,TABLEAU & POWER BI</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<!--  <li><a href="#" class="button fit">Log In</a></li>-->
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>PROJECT-INVESTIGATE A DATASET</h1>
+							</header>
+							<div class="content">
+								<p>python, Numpy, matplotlib, seaborne and Pandas</p>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>INTRODUCTION</h2>
+									</header>
+									<p align="justify">This project investigates the 'No-show appoinments' dataset for hospital appointment attendance status and other characteristics for 100,000 patients in Brazil, South America. 
+										In particular, I explored trends concerning attendance rates between male and females, factors that may or may not have influenced attendance such as SMS prompts, welfare enrolments and Handicap level, average age of attendees and non-attendees.</p>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two" class="spotlights">
+								<section>
+									<a href="images/Data_Properties.png" class="image">
+										<img src="images/Dependencies.png" alt="" data-position="center center" />
+										<img src="images/Data_Properties.png" alt="" data-position="center center"/>
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Dataset Description</h3>
+											</header>
+											<p align="justify">This dataset collects information from 100k medical appointments in Brazil and is focused on the question of whether or not patients show up for their appointment. A number of characteristics 
+												about the patient are included in each row. ‘ScheduledDay’ tells us on what day the patient set up their appointment. ‘Neighborhood’ indicates the location of the hospital. ‘Scholarship’ indicates whether or not the patient is enrolled in Brasilian welfare program Bolsa Família.</p>
+											<header class="major">
+												<h3>Questions for Analysis</h3>
+											</header>
+											<ul class="links">
+												<li>What age ranges are more likely to honor appointments as well as the ages that most likely wouldn't?</li>
+												<li>Does SMS prompts play an important role in appoinment showup rates?</li>
+												<li>What percentage of males and females are enrolled in welfare programs?</li>
+											<!--<ul class="actions">
+												<li><a href="generic.html" class="button">Learn more</a></li>
+											</ul>-->
+										</div>
+									</div>
+								</section >
+								<section>
+									<a href="images/data_cleaning2.png" class="image">
+										<img src="images/data_cleaning.png" alt="" data-position ="center center" />
+										<img src="images/data_cleaning_check.jpg" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Data Cleaning</h3>
+											</header>
+											<ul class="links">
+												<li>Following the data preview done in the previous section, it appears that there are some columns that wouldn't be needed as regards the purview of my analysis such as the 'PatientId' and 'AppointmentID' columns . Dropping them will enable me focus on the sections that are of use to me.</li>
+												<li>A good practice is to convert all column names to lower case because it is somewhat stressfull to always check the column name everytime you intend to access them during analysis.</li>
+												<li>After observing the cloumn names in the previous section, column 'no-show' seems to have a python inbuilt operator as part of its naming. It is of great importance to rename this column so as to avoid conflicts and errors when referencing column 'no-show'.</b> Column 'hipertension' and 'handcap' are spelled wrongly so I decided to make a correction to 'hypertension' and 'handicap' respectively.</li>
+												<li>Documentation states there was an error in the no_show column where 'Yes' was recorded as 'No' and 'No' was entered as 'Yes'. This cell renames the values of the no_show column.</li>
+												<li>Columns 'scheduledday' and 'appoinmentday' are dates but their data types do not correspond, they appear to be strings which should not be so. Dates are to be treated as datetime formats for smooth analysis process.</li>
+											</ul>
+											<ul class="actions">
+												<li><a href="https://github.com/Khunmi/Project-Investigate-a-Dataset/blob/main/Investigate_a_Dataset.ipynb" class="button">See more</a></li>
+											</ul>
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="images\preliminary_assesment.png" class="image">
+										<img src="images\preliminary_assesment.png" alt="" data-position="25% 25%" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Variable Preliminary Assessment</h3>
+											</header>
+											<p align="justify">This cell contains an overview plot of other characteristics of the group with ages less than 1(yellow bars). These plots give enough details to compare with the general characteristics of our entire dataframe. I am looking to inspect if there are any peculiarities about this age group by comparing their characteristics with that of the entire dataframe.</p>
+											<p align="justify">Blue Histograms plots for general characteristics of the 'No-show appointments' dataset. In comparison to the histogram plots for the age group less than 1 years of age, it can be deduced that there are a few differences in trends accross all characteristics.</p>
+											<!--<ul class="actions">
+												<li><a href="generic.html" class="button">Learn more</a></li>
+											</ul>-->
+											<header class="major">
+												<h3>Deduction Summary</h3>
+											</header>
+											<ol class="links">
+												<li>Generally, more people showup for their appointments in both data categories.</li>
+												<li>Generally, more people showup for their appointments in both data categories.</li>
+												<li>Generally, more people showup for their appointments in both data categories.</li>
+												<li>'alcoholism', 'hypertension','diabetes' and 'handicap' columns recorded in 0 cases for all patients </b> in the wrong-age-entry category while other patients are classified under one or more of these columns in the general dataset.</li>
+											</ol>
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="images\replacement_data.PNG" class="image">
+										<img src="images\replacement_data.PNG" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Deduction- Action</h3>
+											</header>
+										<p align="justify">Deductions based on the comparisons in the previous section have informed my decision to fill the wrong age entry category with the average age accross the original dataset due to the fact that both groups largely share same characteristics</p>
+										</div>
+									</div>
+								</section>
+								<section id="two" class="spotlights">
+									<a href="images\q1.png" class="image">
+										<img src="images\q1.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h1>EXPLORATORY DATA ANALYSIS (EDA)</h1>
+											</header>
+											<ul>
+												<li><h4>What age ranges are more likely to honor appointments as well as the ages that most likely wouldn't. In order words, is attendance a function of age?</h4></li>
+												<p align="justify">To understand if honoring appointments is a function of age, we need to break down our dataframe in to sections for purpose of analysis. I start by creating a query for all patients that showed up and those that did not showup being the subject of my question(cell 20).</p>
+												<p align="justify">Based on the chart from cell output 21, it shows that slightly older people tend to honor medical appointments more. in order words, the closer and individual gets to age 40(i.e age 36,37,39 etc), the likelier the individual will honor hospital appintments.</b> It would be interesting to see how this varies amongst genders as I continue my analysis.</b> In cell 22, I am breaking down the first set of queries('showup' and 'nshowup') into subcategories for males and females in order to analyse the distribution of attendance based on average age for the new subcategories.</p>
+												<p align="justify">The bar plot output from cell 23 communicates more insight on the connection between age and attendance according to gender. Some key notes include;
+													<ol>
+														<li align="justify">The female distribution conforms closely with the general trend observed in the previous chart. Average age of females that honor appointments is between 40 and 41, while the average age of females that fail to showup is between age 35 and 36.</li>												
+														<li>The male distribution however shows a general attribute of a lesser average age of attendance and non attendance.</li>
+													</ol>
+												</p>
+											</ul>
+										</div>
+									</div>
+								</section>
+								<section id="two" class="spotlights">
+									<a href="images\q2.png" class="image">
+										<img src="images\q2.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h1>EXPLORATORY DATA ANALYSIS (EDA)</h1>
+											</header>
+											<ul>
+												<li><h4>Do SMS prompts play an important role in appoinment showup rates?</h4></li>
+												<p align="justify">Investigating the influence of SMS prompts require drilling further into the first queries created for our analysis('showup' and 'nshowup'). Cell 24 contains statements generating the number of people that receives SMS and showedup for their appointments and those that didn't show despite receiving SMS prompts.</p>
+												<p align="justify">As seen in the plots from cell output 29, clearly, SMS prompts doesn't seem to influence attendance in any way;
+													<ol>
+														<li>A large percentage(83.3%) of people that didn't receive SMS prompts honored their appoinments while 16.7% did not.</li>												
+														<li>72.4% of SMS receivers honored their appoinment but this is obviously lesser than the attendees that did not receive any SMS prompts whatsoever.</li>
+													</ol>
+												</p>
+											</ul>
+										</div>
+									</div>
+								</section>
+								<section id="two" class="spotlights">
+									<a href="images\q3.png" class="image">
+										<img src="images\q3.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h1>EXPLORATORY DATA ANALYSIS (EDA)</h1>
+											</header>
+											<ul>
+												<li><h4>What percentage of males and females are enrolled in welfare programs?</h4></li>
+												<p align="justify">Exploring the distribution of scholarship enrolments by gender involves categorising our dataframe (cell 30) into the existing gender distribution and summing up the scholarship values because the data type in the 'scholarship' column is 'int' and it consists of two distinct values(0 and 1). Since I intend to investigate the percentage distribution, the total count for both male and female genders in our dataset needs to be calculated as given in cell output 31.</p>
+												<p align="justify">Since I intend to investigate the percentage distribution, the total count for both male and female genders in our dataset needs to be calculated as given in cell 31 . Investigating using percentage was chosen because the number of females in the distribution far outnumbers the males so plotting aggregates like count may not communicate the exact picture of the welfare enrollment distribution amongst genders(cell 32).</p>
+												<p align="justify">Highlights from the chart include;
+													<ol>
+														<li>Females have a higher percentage of enrollment in wellfare programmes than males. More than twice the percentage of enrolled men to be precise.</li>												
+														<li>Only 5.2% of the male distribution are enrolled in welfare programmes.</li>
+													</ol>
+												</p>
+											</ul>
+										</div>
+									</div>
+								</section>															
+							</section>
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>CONCLUSION</h2>
+									</header>
+									<p align="justify">In conclusion, investigation shows through question one that according to the data provided, people who are middleaged(35 to 41) tend to honors appointments more. Although slightly younger observations were highlighted in the male category. Question two investigated the influence of SMS prompts on attendance of appiontment. Analysis shows that SMS prompts do not neccessarily affect the percentage of people that honored their appointments. Lastly, wellfare enrollment distribution amongst gender was investigated and analysis revealed that a lot lesser percentage of men are enrolled in wellfare programmes as opposed to women. However, there is a generally low enrolment rate for accross the dataset.</p>
+								</div>
+							</section>
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>LIMITATIONS</h2>
+									</header>
+									<p align="justify">Data not capturing other gender identities. Male and females are not the only genders existing now. It would've helped to explore some peculiarities and differences associated with other gender identities.</p>
+								</div>
+							</section>	
+
+						<!-- Three -->
+							<section id="two" class="spotlights">
+								<!--<a href="images\replacement_data.PNG" class="image">
+									<img src="images\replacement_data.PNG" alt="" data-position ="center center" />										
+								</a>-->
+								<!--<div class="content">-->
+								<!--<div class="inner">-->
+								<!--		<header >-->
+								<!--			<h1><u><center>Conclusion</center></u></h1>-->
+								<!--		</header>-->
+								<!--	<p>What age ranges are more likely to honor appointments as well as the ages that most likely wouldn't?</p>-->
+								<!--	</div>-->
+								<!--</div>-->
+							<!--</section>-->
+
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="6"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Clear" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="#">bukunmiadebanjo@gmail.com</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-phone"></span>
+										<h3>Phone</h3>
+										<span>+1(403) 668-1475</span>
+									</div>
+								</section>
+								<!--<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-home"></span>
+										<h3>Address</h3>
+										<span>1234 Somewhere Road #5432<br />
+										Nashville, TN 00000<br />
+										United States of America</span>
+									</div>
+								</section>-->
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<!--<li><a href="www.twitter.com" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>-->
+								<!--<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>-->
+								<!--<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>-->
+								<li><a href="https://github.com/Khunmi" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/kunmiadebanjo" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

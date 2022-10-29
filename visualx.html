@@ -1,0 +1,426 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>BUKUNMI'S PORTFOLIO(VIZ)</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<!-- Note: The "styleN" class below should match that of the banner element. -->
+					<header id="header" class="alt style2">
+						<a href="index.html" class="logo"><strong>Portfolio</strong> <span>by Bukunmi</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">HOME</a></li>
+							<li><a href="landing.html">EXPLORATORY DATA ANALYSIS</a></li>
+							<li><a href="visualx.html">VISUALIZATION WITH SEABORNE</a></li>
+							<li><a href="AB_Testing.html">A/B TESTING</a></li>
+							<li><a href="SQL.html">SQL,TABLEAU & POWER BI</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<!--  <li><a href="#" class="button fit">Log In</a></li>-->
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Ford GoBike Data Exploration</h1>
+							</header>
+							<div class="content">
+								<p>python, Numpy, matplotlib, seaborne and Pandas</p>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>INTRODUCTION</h2>
+									</header>
+									<p>This project explores the individual rides in a bike-sharing system spanning
+										 the larger San Francisco Bay area included in the 'fordgobike-tripdata' dataset of over 180,000 records.</p>
+									<header class="major">
+										<h3>Dataset Description</h3>
+									</header>
+									<p align="justify">There are approximately 175,000 bike rides in this data set with 11 trip attributes (duration_sec, start_time, end_time, start_station_id, start_station_name, end_station_id, end_station_name, bike_id, user_type, member_birth_year, member_gender ). 
+										The member_gender and user_type features are categorical variables. Numeric data types are more dominant in the dataset with 5 variables being integer values.</p>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two" class="spotlights">
+								<section>
+									<a href="images\FGB_preliminary_wrangling.png" class="image">
+										<img src="images\FGB_preliminary_wrangling.png" alt="" data-position="center center" />	
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Main Features of Interest</h3>
+											</header>
+											<ul class="links">
+												<li>I'm interested in the time it takes for an average trip to be completed.</li>
+												<li>If any particular gender spends more time than the other on trips.</li>
+												<li>Another area of interest is the relationship between user_type and member_gender.</li>
+											</ul>
+											<p align="justify">The 'duration_sec' variable will be of great importance in understanding average duration for trips. Other variables such as "user_type", "member_gender" and "member_birth_year" will also aid exploring relationships.</p>
+											<header class="major">
+												<h3>Preliminary Wrangling</h3>
+											</header>
+											<p align="justify">An initial inspection of my dataset was done to know how much wrangling I will be performing on my dataset.
+												cell output 2, 3 and 4 are results of inital assessments.
+											</p>
+										
+											<!--<ul class="actions">
+												<li><a href="generic.html" class="button">Learn more</a></li>
+											</ul>-->
+										</div>
+									</div>
+								</section >
+								<section>
+									<a href="images\FGB_wrangling2.png" class="image">
+										<img src="images\FGB_wrangling2.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Data Cleaning</h3>
+											</header>											
+												<p>This particular dataset didn't require too much cleaning activity because I intended for this project to be more of data visualisation than wrangling. Some of the cleaning performed are listed below.
+													<ol class="links">														
+														<li>Querying and deleting of rows that contained missing values was the first cleaning activity for my analysis.</li>
+														<li>Some variables were not needed for my analysis so I got rid of them from my dataframe using the ".drop()" method of pandas.</li>
+														<li>Converted data types from their original formats to appropriate formats suitable for my analysis as seen in cell 7.</li>
+													</ol>
+												</p>
+											
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="images\FGB_univariate_plot1.png" class="image">
+										<img src="images\FGB_univariate_plot1.png" alt="" data-position="25% 25%" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>UNIVARIATE EXPLORATION</h3>
+											</header>
+											<ul>
+												<li><h3>Duration</h3></li>
+											</ul>
+											<p align="justify">The visual output of cell 10 in the image shows an initial plot for the 'duration' variable in my dataset. Distribution plot of the duration variable has a long tail and it is rightly-skewed. 
+												Finding the right bin size for this ditribution took a while. Converting the variable from seconds to minutes or hours will be a good idea for me to explore.
+											</p>
+											<p align="justify">After conversion of the Duration variable to minutes(cell output 11), a log scale histogram plot(cell output 14) was used to visually drill down into the distribution of the time spent during bike rides. 
+												There seems to be a few data points greater than where majority of the distribution lies(1- 100 minutes). An observed peak is seen at 10 minutes.
+											</p>																												
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="images\FGB_univariate_plot2.png" class="image">
+										<img src="images\FGB_univariate_plot2.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>UNIVARIATE EXPLORATION</h3>
+											</header>
+											<ul>
+												<li><h3>User Type</h3></li>
+											</ul>
+											<p align="justify">Another feature of interest for my analysis is the "user_type" variable. Exploring the distribution of this variable across the dataset shows that a majority of trips(80%) were
+												carried out by the Subscriber user category while the Customer user category accounted for 10% of the trips taken as plotted in cell output 15.
+											</p>
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="images\FGB_univariate_plot3.png" class="image">
+										<img src="images\FGB_univariate_plot3.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>UNIVARIATE EXPLORATION</h3>
+											</header>
+											<ul>
+												<li><h3>Busiest Start & End Bike Stations</h3></li>
+											</ul>
+											<p align="justify">A seaborne countplot visual was used to determine the top five start and end stations with regards to how many bike trips 
+												started and ended in these stations repectively. Based on cell output 22, The top two busiest end stations are 'San Francisco Caltrain Station 2' 
+												and 'Market St at 10th St' with both of them switching postions for the busiest start stations plot. Considering the whole dataset, San Francisco Caltrain Station 2 is busiest bike station.
+											</p>
+										</div>
+									</div>
+								</section>
+								<section id="two" class="spotlights">
+									<a href="images\FGB_bivariate_plot1.png" class="image">
+										<img src="images\FGB_bivariate_plot1.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h3>BIVARIATE EXPLORATION</h3>
+											</header>
+											<ul>
+												<li><h3>Duration VS User Type & Gender Type</h3></li>
+											</ul>
+											<p align="justify">My bivariate explorations starts with investigating the time spent on bike rides with respect to different gender catgeories as well as User Type categories.
+												Using seaborne's Violin plot, this reveals that a majority of the subscriber category members travel duration fall within the range of 1 to 10 minutes with over 50% falling below 10 minutes. The customer category have slightly over 25% of them with trip durations lower than 10 minutes while the rest fall above the 10 minutes cap. A more spreadout trip duration distribution is obeserved in the customer category type.
+												The 'male', 'female' and 'other' gender types show similiar relationships with the trip duration variable regardless of their respective sample size.
+											</p>											
+										</div>
+									</div>
+								</section>
+								<section id="two" class="spotlights">
+									<a href="images\FGB_bivariate_plot2.png" class="image">
+										<img src="images\FGB_bivariate_plot2.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h3>BIVARIATE EXPLORATION</h3>
+											</header>
+											<ul>
+												<li><h3>Categorical Vs Numeric Variables</h3></li>
+											</ul>
+											<p align="justify">I decided to investigate for existing patterns between categorical and numerical data types present in my dataset. A matrix of box plots was used for this visualisation. I started with
+												storing all catgeorical and numeric features into two major variables ("numeric_var" and "categoric_vars") and then parsing them into Seaborne's ".boxplot" method.	
+											</p>
+											<p align="justify"> Visual ouput from cell 27 informs that the average age of all gender and customer category is less that 40 yrs albeit several outliers present in the dataset.
+												From the gender point of view, average trip duration is less than 10 minutes albeit several outlier present in the distribution. From the user_type point of view, average 
+												trip duration for Customer category is over 10 minutes while that of the Subscriber category are less than 10 minutes.
+											</p>							
+										</div>
+									</div>
+								</section>
+								<section id="two" class="spotlights">
+									<a href="images\FGB_multivariate_plot1.png" class="image">
+										<img src="images\FGB_multivariate_plot1.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h3>MULTIVARIATE EXPLORATION</h3>
+											</header>
+											<ul>
+												<li><h3>Gender Activity Across Top 5 Busiest Start Stations</h3></li>
+											</ul>
+											<p align="justify"> For multivariate visualisation, I decided to work with three major variables in my dataset "member_gender","start_station_name" and "duration_mins".
+												Using the "member_gender" as hue for my Seaborne barplot, notable insights show that more male gender type in the dataset doesn't directly interprets to a dominance
+												 in all variables, this came as a surprise. Here in the top 5 busiest start stations, it can be seen that the Other gender category keeps the 'San Francisco Caltrain Station 2' and
+												  'Powell St BART Station (Market St at 4th St) stations the busiest in terms of trip durations at start stations.
+											</p>											
+										</div>
+									</div>
+								</section>
+								<!-- <section id="two" class="spotlights">
+									<a href="images\q2.png" class="image">
+										<img src="images\q2.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h1>EXPLORATORY DATA ANALYSIS (EDA)</h1>
+											</header>
+											<ul>
+												<li><h4>Do SMS prompts play an important role in appoinment showup rates?</h4></li>
+												<p>Investigating the influence of SMS prompts require drilling further into the first queries created for our analysis('showup' and 'nshowup'). Cell 24 contains statements generating the number of people that receives SMS and showedup for their appointments and those that didn't show despite receiving SMS prompts.</p>
+												<p>As seen in the plots from cell output 29, clearly, SMS prompts doesn't seem to influence attendance in any way;
+													<ol>
+														<li>A large percentage(83.3%) of people that didn't receive SMS prompts honored their appoinments while 16.7% did not.</li>												
+														<li>72.4% of SMS receivers honored their appoinment but this is obviously lesser than the attendees that did not receive any SMS prompts whatsoever.</li>
+													</ol>
+												</p>
+											</ul>
+										</div>
+									</div>
+								</section> -->
+								<!-- <section id="two" class="spotlights">
+									<a href="images\q3.png" class="image">
+										<img src="images\q3.png" alt="" data-position ="center center" />										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major" >
+												<h1>EXPLORATORY DATA ANALYSIS (EDA)</h1>
+											</header>
+											<ul>
+												<li><h4>What percentage of males and females are enrolled in welfare programs?</h4></li>
+												<p>Exploring the distribution of scholarship enrolments by gender involves categorising our dataframe (cell 30) into the existing gender distribution and summing up the scholarship values because the data type in the 'scholarship' column is 'int' and it consists of two distinct values(0 and 1). Since I intend to investigate the percentage distribution, the total count for both male and female genders in our dataset needs to be calculated as given in cell output 31.</p>
+												<p>Since I intend to investigate the percentage distribution, the total count for both male and female genders in our dataset needs to be calculated as given in cell 31 . Investigating using percentage was chosen because the number of females in the distribution far outnumbers the males so plotting aggregates like count may not communicate the exact picture of the welfare enrollment distribution amongst genders(cell 32).</p>
+												<p>Highlights from the chart include;
+													<ol>
+														<li>Females have a higher percentage of enrollment in wellfare programmes than males. More than twice the percentage of enrolled men to be precise.</li>												
+														<li>Only 5.2% of the male distribution are enrolled in welfare programmes.</li>
+													</ol>
+												</p>
+											</ul>
+										</div>
+									</div>
+								</section> -->
+							</section>
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>CONCLUSIONS</h2>
+									</header>
+									<p align="justify">
+										<ul class="links">														
+											<li>Average trip duration for the entire dataset hovers around 10 minutes. Most people start their trips for the day at 8am while 
+												evening trips are mostly started at 5pm. A percentage of 75 male gender type dominate the data set and majority (95%)of the bike 
+												riders are Subscriber category user types. Over 50% of the Subscriber category users travel less than a total of 10 minutes while 
+												the Customer user types record more minutes during bike trips.
+											</li>
+											<li>Users of age range 32 to 35 ride bikes the most and average age across all 
+												categories is below 40yrs.
+											</li>
+											<li>A surprising outcome is that the Other gender category took longer trips at some of
+												 the busiest stations, despite it being of the lowest percentage of gender type present in the dataset.
+											</li>
+										</ul>
+									</p>
+									<ul class="actions">
+										<li><a href="Part_II_slide_deck.slides.html" class="button">View SlideDeck</a></li>
+									</ul>
+								</div>
+							</section>
+							<!-- <section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>LIMITATIONS</h2>
+									</header>
+									<p>Data not capturing other gender identities. Male and females are not the only genders existing now. It would've helped to explore some peculiarities and differences associated with other gender identities.</p>
+								</div>
+							</section>	 -->
+
+						<!-- Three -->
+							<section id="two" class="spotlights">
+								<!--<a href="images\replacement_data.PNG" class="image">
+									<img src="images\replacement_data.PNG" alt="" data-position ="center center" />										
+								</a>-->
+								<!--<div class="content">-->
+								<!--<div class="inner">-->
+								<!--		<header >-->
+								<!--			<h1><u><center>Conclusion</center></u></h1>-->
+								<!--		</header>-->
+								<!--	<p>What age ranges are more likely to honor appointments as well as the ages that most likely wouldn't?</p>-->
+								<!--	</div>-->
+								<!--</div>-->
+							<!--</section>-->
+
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="6"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Clear" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="#">bukunmiadebanjo@gmail.com</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-phone"></span>
+										<h3>Phone</h3>
+										<span>+1(403) 668-1475</span>
+									</div>
+								</section>
+								<!--<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-home"></span>
+										<h3>Address</h3>
+										<span>1234 Somewhere Road #5432<br />
+										Nashville, TN 00000<br />
+										United States of America</span>
+									</div>
+								</section>-->
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<!--<li><a href="www.twitter.com" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>-->
+								<!--<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>-->
+								<!--<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>-->
+								<li><a href="https://github.com/Khunmi" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/kunmiadebanjo" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
