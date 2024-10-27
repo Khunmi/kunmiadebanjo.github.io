@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>BUKUNMI'S PORTFOLIO(Power-BI & Tableau)</title>
+		<title>Kunmi's Portfolio(Power-BI & Tableau)</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,7 +19,7 @@
 
 				<!-- Header -->
 					<header id="header" class="alt style2">
-						<a href="index.html" class="logo"><strong>Portfolio</strong> <span>by Bukunmi</span></a>
+						<a href="index.html" class="logo"><strong>Portfolio</strong> <span>by Kunmi</span></a>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -67,47 +67,132 @@
 								</header>
 								<p>This section of my porfolio features:
 									<ul class="links">
-										<li>Monitoring and evaluation dashboard tracker via Tableau.</li>
+										<li>ATB Financial's US branch performance analysis - Transitioning client activity to digital channels.</li>
 										<li>End of year retail sales performance report via Power BI.</li>
+										<li>Monitoring and evaluation dashboard tracker via Tableau.</li>										
 									</ul>
 								</p>
 							</div>
 						</section>
-						<section id="one">
+						<section id="one"></section>
 							<div class="inner">
 								<!--<img src="images\PBI.PNG" alt="" data-position="25% 25%" /> -->
-								<p><iframe width="1000" height="900" src="https://public.tableau.com/views/MonitoringandEvaluationDashboard/Dashboard1?:language=en-GB&:display_count=n&:origin=viz_share_link:showVizHome=no&:embed=true"  frameborder="0" allowFullScreen="True"></iframe></p>
+								<p><iframe width="1000" height="950" src="https://public.tableau.com/views/ATB-StrategyMock/Overview?:language=en-GB&:display_count=n&:origin=viz_share_link:showVizHome=no&:embed=true"  frameborder="0" allowFullScreen="True"></iframe></p>
 								<header class="major">
-									<h2>Tableau Harvest Tracker</h2>
+									<h2>ATB Financial US Branch Performance Analysis</h2>
+									<!-- <h3>Transitioning Client Activity to Digital Channels</h3> -->
 								</header>
 								<header class="center">
-									<h3>Introduction:</h3>
+									<h3>Objectives and Primary Goal:</h3>
 								</header>
-								<p align="justify">In the northern states of Nigeria, a monitoring and evaluating project is underway to track the recovery status of agriculture produce. The project aims to effectively monitor the status of submitted produce during the early stages of harvest aggregation. To facilitate this process, an innovative dashboard was created, using a combination of modern technology tools and data visualization techniques.
+								<p align="justify">The primary goal is to Analyze ATB branch performance to identify opportunities for transitioning client activity from physical branches to digital channels. Specific objectives include;
+									<ul class="links">
+										<li>Determining which branches or states are underperforming</li>
+										<li>Identify high-performing branches to potentially replicate success</li>
+									</ul>
 								</p>
 								<header class="center">
-									<h3>ETL Process:</h3>
+									<h3>Dataset Overview:</h3>
 								</header>
-								<p align="justify">To create this dashboard, an ETL process was used to extract data from various technology partners' APIs. This involved a daily scheduler using Prefect as an orchestration tool, which helped to automate the data extraction process. After the data was extracted, it was then transformed and cleaned using Pandas, to ensure that the data was consistent and accurate for loading into the data warehouse(GCS buckets). Finally, the data was visualized using Tableau, with the data source being Google BigQuery.
+								<p align="justify">This dataset includes detailed information on deposit amounts for various branches of ATB Financial over the period from 2010 to 2016.
+									<ol class="links">
+										<header class="center">
+											<h4>Key Variables:</h4>
+										</header>
+										<li>Branch Types</li>
+											<ul class="links">
+												<li>Walk-In : Traditional branches where customers can visit and perform transaction</li>
+												<li>Drive-Thru : Branches that offer drive-thru services for quick and convenient transactions</li>
+											</ul>
+										<li>Deposit Amounts</li>
+											<ul class="links">
+												<li>Total dollar amount of deposits made at each branch</li>
+												<li>Used to gauge the performance and popularity of each branch type</li>
+											</ul>
+										<li>Geographic locations</li>
+											<ul class="links">
+												<li>State, county, city and specific branch location data</li>
+												<li>Allows for geographic analysis of branch performance</li>
+											</ul>
+										<li>Year</li>
+											<ul class="links">
+												<li>Data spans from 2010 to 2016</li>
+												<li>Provides a timeline to analyze trends and growth</li>
+											</ul>
+									</ol>
 								</p>
 								<header class="center">
-									<h3>Main Findings:</h3>
+									<h3>Initial Insights:</h3>
 								</header>
-								<p align="justify">The resulting dashboard provides a simplistic adaptation of a more robust solution designed to effectively track and monitor project status. The dashboard displays the submitted produce in terms of bags, with sizes ranging between 50kg to 100kg. One of the most notable features of the dashboard is the map adaptation analytics, which offers flexibility and easy visualization of the data. Although the dataset mirrors real-life scenarios, it was slightly altered due to patent rights.
+								<p align="justify">First level Exploratory data analysis(EDA) reveals the following:
+									<ul class="links">
+										<a href="images\story_telling_deposits summary.png" class="image">
+											<img src="images\story_telling_deposits summary.png" alt="" data-position="center center" />	
+										</a>		
+										<li>Exactly $12,653,062,276 has been deposited between 2010 and 2016. A further breakdown shows that, of the $12,653,062,276 deposited, $26,432,237 was via drive-thrus while $12,626,630,039 was through walk-in branches</li>
+										<li>There are a total of 5,413 branches of ATB as of July 16, 2016 when this dataset was generated. 100 of these branches are drive-thrus while 5,313 are walk-in branches</li>
+										<li>Based on these numbers, initial assumption informs that each drive-thru branch received deposits of an average of $264,322.37 between 2010 and 2016 and each physical branch received deposits of an average of $2,376,553.74 between 2010 and 2016</li>
+									</ul>
+								</p>
+								<header class="center">
+									<h3>Key Findings - Deposit Trends:</h3>
+								</header>
+								<ul class="links">
+									<a href="images\story_telling_deposit chart.png" class="image">
+										<img src="images\story_telling_deposit chart.png" alt="" data-position="center center" />	
+									</a>		
+									<li>Walk-in branches have higher deposits(in billions)</li>
+									<li>Drive-thru ABMs show consistent growth potential similar to walk-in branches</li>
+									<li>At this level of granularity, the observed difference can easily be attributed to the number of branches in each category as well as their popularity and general technology adoption</li>
+								</ul>
+								<header class="center">
+									<h3>Key Findings - Deposit Trends:</h3>
+								</header>
+								<ul class="links">
+									<a href="images\story_telling_deposit chart2.png" class="image">
+										<img src="images\story_telling_deposit chart2.png" alt="" data-position="center center" />	
+									</a>		
+									<li>Additional level of details shows acquired branches contributes over 90% of deposits recorded at drive-thru ABMs. This is in contrast to what is observed in walk-in branches where organic ownerships are largely responsible for deposit</li>
+									<li>Could this be a function of a great acquisition team, number of branches for each ownership type, geography or an hybrid of some or all of these factors?</li>
+								</ul>
+								<header class="center"></header>
+									<h3>Key Findings - Geographic Distribution:</h3>
+								</header>
+								<ul class="links">
+									<a href="images\story_telling_deposit heatmap.png" class="image">
+										<img src="images\story_telling_deposit heatmap.png" alt="" data-position="center center" />	
+									</a>		
+									<li>Deposits heatmap reveal Ohio and New York as the largest deposit contributors for the entire US market. However, it is interesting to highlight that the State of Pennsylvania, despite being sandwiched between the two highest contributing States, actually recorded  $0 in deposits.</li>
+								</ul>
+								<header class="center">
+									<h3>Recommendations:</h3>
+								</header>
+								<p align="justify">
+									<ol class="links">
+										<li>Target High-Performing Regions: Analysis suggests states with an history of high deposits, high population figures and a favorable GDP per capita show promise and should be prioritized.</li>
+										<li>Divest Low-Performing Regions: Consider closing branches in states with low deposits. Analysis has identified over 100 branches that have transacted $0 within 2010 - 2016.</li>
+										<li>Enhance Digital Channels:Improve web and drive-thru ABM services. For instance these channels can be incentivised(e.g cash backs) at an initial stage in order to foster adoption.</li>
+										<li>Customer Support: Tailored support for people that are less tech-savvy such as local(native) language support and robust AI auto response.</li>
+
+									</ol>
 								</p>
 								<header class="center">
 									<h3>Conclusion:</h3>
 								</header>
-								<p align="justify">In conclusion, the creation of this dashboard has provided an innovative solution to the challenges faced in monitoring and evaluating agriculture produce in the northern states of Nigeria. Through the use of modern technology tools and data visualization techniques, the project has been able to achieve its objectives of effectively tracking and monitoring project status.
+								<p align="justify">Summary of Key Findings show that;
+									<ol class="links">
+										<li>Deposit Trends: Drive-thru ABMs show growth potential, but walk-in branches still dominate.</li>
+										<li>Geographic Insights: High deposit states correlate with favorable economic conditions.</li>
+										<li>Market Insights: Mobile banking adoption and economic recovery are key drivers for digital transition.</li>
+									</ol>
 								</p>
-							</div>
+							</div>					
 						</section>
 						<section id="one">
 							<div class="inner">
-								<!--<img src="images\PBI.PNG" alt="" data-position="25% 25%" /> -->
-								<p><iframe width="950" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiYzMzMDNjNmUtZjIwYi00ODNiLTgyMTctOTg0NDI5NDBjZDQ0IiwidCI6ImJkMDJkNzlkLWZjMjktNGExMi05ZGYxLWE0YmZlNmQ4ZjRjOCJ9&pageName=ReportSectiond9306b8184b0330bd596"  frameborder="0" allowFullScreen="True"></iframe></p>
+								<p><iframe width="965" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiYzMzMDNjNmUtZjIwYi00ODNiLTgyMTctOTg0NDI5NDBjZDQ0IiwidCI6ImJkMDJkNzlkLWZjMjktNGExMi05ZGYxLWE0YmZlNmQ4ZjRjOCJ9&pageName=ReportSectiond9306b8184b0330bd596"  frameborder="0" allowFullScreen="True"></iframe></p>
 								<header class="major">
-									<h2>Tableau Harvest Tracker</h2>
+									<h2>Retail Sales Annual Report</h2>
 								</header>
 								<header class="center">
 									<h3>Introduction:</h3>
@@ -140,7 +225,37 @@
 								<p align="justify">In conclusion, the end-of-year retail sales performance report for 2022 highlights the challenges and successes in the downstream oil and gas sector. While the expansion of retail stations and improved product supply led to an increase in PMS sales volume, AGO sales and lubricant sales experienced challenges. Continued efforts to improve sales performance for all products, including better supply chain management and price optimization strategies, are being implemented to achieve greater sales volumes and revenue contribution across all regions and stations.
 								</p>
 							</div>
-						</section>		
+						</section>
+						<section id="one">
+							<div class="inner">
+								<!--<img src="images\PBI.PNG" alt="" data-position="25% 25%" /> -->
+								<p><iframe width="1400" height="800" src="https://public.tableau.com/views/MonitoringandEvaluationDashboard/Dashboard1?:language=en-GB&:display_count=n&:origin=viz_share_link:showVizHome=no&:embed=true"  frameborder="0" allowFullScreen="True"></iframe></p>
+								<header class="major">
+									<h2>Tableau Harvest Tracker</h2>
+								</header>
+								<header class="center">
+									<h3>Introduction:</h3>
+								</header>
+								<p align="justify">In the northern states of Nigeria, a monitoring and evaluating project is underway to track the recovery status of agriculture produce. The project aims to effectively monitor the status of submitted produce during the early stages of harvest aggregation. To facilitate this process, an innovative dashboard was created, using a combination of modern technology tools and data visualization techniques.
+								</p>
+								<header class="center">
+									<h3>ETL Process:</h3>
+								</header>
+								<p align="justify">To create this dashboard, an ETL process was used to extract data from various technology partners' APIs. This involved a daily scheduler using Prefect as an orchestration tool, which helped to automate the data extraction process. After the data was extracted, it was then transformed and cleaned using Pandas, to ensure that the data was consistent and accurate for loading into the data warehouse(GCS buckets). Finally, the data was visualized using Tableau, with the data source being Google BigQuery.
+								</p>
+								<header class="center">
+									<h3>Main Findings:</h3>
+								</header>
+								<p align="justify">The resulting dashboard provides a simplistic adaptation of a more robust solution designed to effectively track and monitor project status. The dashboard displays the submitted produce in terms of bags, with sizes ranging between 50kg to 100kg. One of the most notable features of the dashboard is the map adaptation analytics, which offers flexibility and easy visualization of the data. Although the dataset mirrors real-life scenarios, it was slightly altered due to patent rights.
+								</p>
+								<header class="center">
+									<h3>Conclusion:</h3>
+								</header>
+								<p align="justify">In conclusion, the creation of this dashboard has provided an innovative solution to the challenges faced in monitoring and evaluating agriculture produce in the northern states of Nigeria. Through the use of modern technology tools and data visualization techniques, the project has been able to achieve its objectives of effectively tracking and monitoring project status.
+								</p>
+							</div>					
+						
+						</section>	
 
 					</div>
 					<!-- https://app.powerbi.com/view?r=eyJrIjoiYzMzMDNjNmUtZjIwYi00ODNiLTgyMTctOTg0NDI5NDBjZDQ0IiwidCI6ImJkMDJkNzlkLWZjMjktNGExMi05ZGYxLWE0YmZlNmQ4ZjRjOCJ9 -->
@@ -208,7 +323,7 @@
 							<li><a href="https://www.linkedin.com/in/kunmiadebanjo" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 						</ul>
 						<ul class="copyright">
-							<li>&copy; Portfolio 2022</li><li>Design: <a href="https://html5up.net">Bukunmi</a></li>
+							<li>&copy; Portfolio 2022</li><li>Design: <a href="https://html5up.net">Kunmi</a></li>
 						</ul>
 					</div>
 				</footer>
